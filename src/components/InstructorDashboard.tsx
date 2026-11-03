@@ -69,7 +69,7 @@ export const InstructorDashboard: React.FC<InstructorProps> = ({ user, courses, 
                       </div>
                       <div>
                         <div className="font-bold text-gray-800 text-sm">{lecture.title}</div>
-                        <div className="text-xs text-gray-500 mt-0.5">Duration: {lecture.duration}</div>
+                        {/* <div className="text-xs text-gray-500 mt-0.5">Duration: {lecture.duration}</div> */}
                       </div>
                     </div>
                   ))}
@@ -219,7 +219,7 @@ const AddAssignmentModal: React.FC<{ courseId: string; onClose: () => void; onAd
       description,
       due_date: dueDate,
       total_marks: parseInt(marks, 10),
-      status: 'Active'
+      // status: 'Active'
     });
     onClose();
   };

@@ -6,7 +6,6 @@ export const assignmentService = {
     return apiFetch<Assignment[]>(`/courses/${courseId}/assignments`);
   },
 
-  // UPDATED: Now actually sends a POST request to the backend
   createAssignment: async (assignmentData: Omit<Assignment, 'assignment_id'>): Promise<Assignment> => {
     return apiFetch<Assignment>('/assignments', {
       method: 'POST',

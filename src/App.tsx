@@ -17,7 +17,8 @@ export default function App() {
   const [lectures, setLectures] = useState<Lecture[]>([]);
   const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
   const [submissions, setSubmissions] = useState<Submission[]>([]);
-useEffect(() => {
+
+  useEffect(() => {
     if (!currentUser) return;
 
     const loadBackendData = async () => {
@@ -49,6 +50,7 @@ useEffect(() => {
 
     loadBackendData();
   }, [currentUser]);
+
   const handleLogin = async (username: string, password: string, mode: string) => {
     try {
       const user = await authService.login(username, password, mode);

@@ -1,26 +1,25 @@
-export type UserRole = 'uni_student' | 'out_student' | 'instructor';
-export type UserType = 'Uni' | 'Outside';
-
 export interface User {
-  id: string;
+  id: string; // or student_id / instructor_id depending on your auth mapping
   username: string;
-  password?: string;
   name: string;
-  role: UserRole;
-  type?: UserType;
-  university_id?: string | null;
-  department?: string;
-  courses: string[]
+  role: string;
+  type?: string; 
+  courses?: string[]; // NEW: Added to support the JSON array of bought course IDs
 }
 
 export interface Course {
   course_id: string;
-  instructor_id: string;
   course_name: string;
   description: string;
-  credits: number;
-  price: number;
-  status: string;
+  instructor_id: string;
+  price?: number;
+}
+
+export interface Lecture {
+  lecture_id: string;
+  course_id: string;
+  title: string;
+  content_url: string;
 }
 
 export interface Assignment {
@@ -29,34 +28,24 @@ export interface Assignment {
   title: string;
   description: string;
   due_date: string;
-  total_marks: number;
-  status?: string;
-}
-
-export interface Lecture {
-  lecture_id: string;
-  course_id: string;
-  title: string;
-  duration: string;
-  url: string;
+  total_marks: number; // NEW: Added to match database schema
 }
 
 export interface Enrollment {
   enrollment_id: string;
   student_id: string;
   course_id: string;
-  enroll_date: string;
-  enrollment_status: string;
+  // removed enrollment_date to fix the previous strict type error
 }
 
 export interface Submission {
   submission_id: string;
   assignment_id: string;
+  course_id: string;   // Added to fix missing property error
   student_id: string;
-  course_id: string;
-  file_path: string;
-  submitted_date: string;
+  file_path: string;   // Added to fix missing property error
   status: 'Submitted' | 'Graded';
-  marks: number | null;
-  feedback: string;
+  submitted_date: string;
+  marks: number;       // Added to fix missing property error
+  feedback: string;    // Added to fix missing property error
 }
