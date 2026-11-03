@@ -10,6 +10,7 @@ export interface User {
   type?: UserType;
   university_id?: string | null;
   department?: string;
+  courses: string[]
 }
 
 export interface Course {
