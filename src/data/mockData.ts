@@ -1,9 +1,9 @@
 import type { User, Course, Assignment, Lecture } from '../types';
 
 export const INITIAL_USERS: User[] = [
-  { id: 'u1', username: 'uni_alice', password: 'password123', name: 'Alice (Uni Student)', role: 'uni_student', type: 'Uni', university_id: 'UN123' },
-  { id: 'u2', username: 'out_bob', password: 'password123', name: 'Bob (Outside Student)', role: 'out_student', type: 'Outside', university_id: null },
-  { id: 'i1', username: 'prof_smith', password: 'password123', name: 'Prof. Smith', role: 'instructor', department: 'Computer Science' }
+  { id: 'u1', username: 'uni_alice', password: 'password123', name: 'Alice (Uni Student)', role: 'uni_student', type: 'Uni', university_id: 'UN123', courses: [] },
+  { id: 'u2', username: 'out_bob', password: 'password123', name: 'Bob (Outside Student)', role: 'out_student', type: 'Outside', university_id: null, courses: [] },
+  { id: 'i1', username: 'prof_smith', password: 'password123', name: 'Prof. Smith', role: 'instructor', department: 'Computer Science', courses: [] }
 ];
 
 export const INITIAL_COURSES: Course[] = [
